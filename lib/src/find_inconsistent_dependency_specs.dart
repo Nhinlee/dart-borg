@@ -61,7 +61,8 @@ Set<PackageDependencySpec> _collectAllDepSpecs(
 
 Set<PackageDependencySpec> _getDependencySpecs(PubspecYaml pubspecYaml) => {
       ...pubspecYaml.dependencies,
-      ...pubspecYaml.devDependencies
+      ...pubspecYaml.devDependencies,
+      ...pubspecYaml.dependencyOverrides
     }.map((dep) => _correctForOverride(dep, pubspecYaml)).toSet();
 
 PackageDependencySpec _correctForOverride(
